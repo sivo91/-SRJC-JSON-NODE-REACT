@@ -1,0 +1,64 @@
+
+body {
+  background-image: linear-gradient(#004206, #0ce8f0);
+  background-repeat: no-repeat;
+  height:100vh;
+}
+
+.root {
+  position:relative;
+  height:100vh;
+}
+
+.title-box {
+  display:flex;
+  justify-content:center;
+}
+
+.arrows {
+  position:realtive;
+  padding: 0 35px;
+  color:white;
+  font-size:24px;
+}
+
+
+
+ p:nth-child(even) {
+  color:#f0f5f2;
+}
+ p:nth-child(odd) {
+  color:#f9fae8;
+}
+
+.imgNode {
+  position:relative;
+  width:70px;
+  height:70px;
+  
+}
+
+.imgReact {
+  position:relative;
+  width:80px;
+  height:70px;
+  animation: rotation 12s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.imgsBox {
+  position:relative;
+  width:300px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-evenly;
+}
+

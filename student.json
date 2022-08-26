@@ -1,0 +1,28 @@
+[
+    
+    {
+        "item":"Bootstrap",
+        "id" : 1
+    },
+    {
+        "item":"JAVASCRIPT",
+        "id" : 2
+    },
+    {
+        "item":"Node.Js",
+        "id" : 3
+    },
+    {
+        "item":"React",
+        "id" : 4
+    },
+    {
+        "item":"Postman",
+        "id" : 5  
+    },
+    {
+       "item":"MongoDB",
+        "id" : 6
+    }
+   
+]
