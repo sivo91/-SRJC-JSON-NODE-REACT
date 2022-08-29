@@ -1,6 +1,5 @@
 const http = require("http");
-const fs = require('fs').promises;
-
+const { readFileSync } = require('fs')
 
    /*  
     html: 'text/html',
@@ -13,51 +12,41 @@ const fs = require('fs').promises;
     js: 'application/javascript' 
     */
 
+const react = readFileSync('./react.html')
+const css = readFileSync('./style.css')
+const js = readFileSync('./app.js')
+const reactPng = readFileSync('./react.png')
+const nodePng = readFileSync('./n.png')
+const data = readFileSync('./student.json')
+
 const server = http.createServer((req,res) => {;
-  
-  if (req.url === "/") {
-    
-    fs.readFile(__dirname + "/react.html")
-      .then(contents => {
-        res.writeHead(200, { 'Content-Type':'text/html' })
-        res.end(contents);
-      });
-  } else if (req.url === "/app.js") {
-    
-    fs.readFile(__dirname + "/app.js")
-      .then(contents => {
-        res.writeHead(200, { 'Content-Type':'text/javascript' })
-        res.end(contents);
-      });
-  } else if (req.url === "/style.css") {
-    
-    fs.readFile(__dirname + "/style.css")
-      .then(contents => {
-        res.writeHead(200, { 'Content-Type':'text/css' })
-        res.end(contents);
-      });
-  } else if (req.url === "/n.png") {
-    
-    fs.readFile(__dirname + "/n.png")
-      .then(contents => {
-        res.writeHead(200, { 'Content-Type':'image/png' })
-        res.end(contents);
-      });
-  } else if (req.url === "/react.png") {
-    
-    fs.readFile(__dirname + "/react.png")
-      .then(contents => {
-        res.writeHead(200, { 'Content-Type':'image/png' })
-        res.end(contents);
-      });
-  } else {
-    fs.readFile(__dirname + "/student.json")
-      .then(contents => {
-        res.setHeader("Content-Type", "application/json; charset=UTF-8");
-        res.writeHead(200);  
-        res.end(contents);
-      });
-  }
+   const url = req.url
+ if(url === '/') {
+   res.writeHead(200, {'content-type': 'text/html'})
+   res.write(react)
+   res.end()
+ } else if (url === '/style.css') {
+   res.writeHead(200, {'content-type': 'text/css'})
+   res.write(css)
+   res.end()
+ } else if (url === '/app.js') {
+   res.writeHead(200, {'content-type': 'application/javascript'})
+   res.write(js)
+   res.end()
+ } else if (url === '/n.png') {
+   res.writeHead(200, {'content-type': 'image/png'})
+   res.write(nodePng)
+   res.end()
+ } else if (url === '/react.png') {
+   res.writeHead(200, {'content-type': 'image/png'})
+   res.write(reactPng)
+   res.end()
+ } else {
+   res.writeHead(200, {'content-type': 'application/json'})
+   res.write(data)
+   res.end()
+ }
+
 });
 
 
@@ -68,4 +57,3 @@ server.listen( port, () => {
     console.log(`port on ${port}`);
   }
 );
-

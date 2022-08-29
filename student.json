@@ -15,14 +15,6 @@
     {
         "item":"React",
         "id" : 4
-    },
-    {
-        "item":"Postman",
-        "id" : 5  
-    },
-    {
-       "item":"MongoDB",
-        "id" : 6
     }
    
 ]
